@@ -4,6 +4,6 @@
 
 ---
 
-# Raxos Router
+# Raxos Wallet
 
 Repository the Wallet library of [Raxos](https://github.com/basmilius/raxos).
