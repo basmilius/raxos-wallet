@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Raxos\Wallet\Apple\Component;
 
-use Raxos\Wallet\Contract\ComponentInterface;
+use Raxos\Contract\Wallet\ComponentInterface;
 use Raxos\Wallet\WalletHelper;
 use function array_filter;
 

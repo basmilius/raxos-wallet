@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Raxos\Wallet;
 
-use Raxos\Foundation\Error\FileSystemException;
+use Raxos\Foundation\Error\TemporaryFileFailedException;
 use Raxos\Foundation\Util\FileSystemUtil;
 use Raxos\Http\HttpHeader;
 use Raxos\Router\Response\{BinaryResponse, Response};
@@ -28,7 +28,7 @@ final readonly class Archive
     /**
      * Archive constructor.
      *
-     * @throws FileSystemException
+     * @throws TemporaryFileFailedException
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

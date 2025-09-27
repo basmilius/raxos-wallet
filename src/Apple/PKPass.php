@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Raxos\Wallet\Apple;
 
 use JsonException;
-use Raxos\Foundation\Error\FileSystemException;
+use Raxos\Foundation\Error\TemporaryFileFailedException;
 use Raxos\Foundation\Util\FileSystemUtil;
 use Raxos\Http\HttpHeader;
 use Raxos\Router\Response\Response;
@@ -157,8 +157,8 @@ final class PKPass
      * Signs the pass.
      *
      * @return void
-     * @throws FileSystemException
      * @throws JsonException
+     * @throws TemporaryFileFailedException
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

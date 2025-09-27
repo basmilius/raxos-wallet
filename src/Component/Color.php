@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Raxos\Wallet\Component;
 
+use Raxos\Contract\Wallet\ComponentInterface;
 use Raxos\Foundation\Util\ColorUtil;
-use Raxos\Wallet\Contract\ComponentInterface;
 
 /**
  * Class Color
