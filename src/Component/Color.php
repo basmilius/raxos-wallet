@@ -66,4 +66,20 @@ final readonly class Color implements ComponentInterface
         return $this->toRgb();
     }
 
+    /**
+     * Returns the color from a hex string.
+     *
+     * @param string $hex
+     *
+     * @return self
+     * @author Bas Milius <bas@mili.us>
+     * @since 19-11-2025
+     */
+    public static function fromHex(string $hex): self
+    {
+        [$red, $green, $blue] = ColorUtil::hexToRgb($hex);
+
+        return new self($red, $green, $blue);
+    }
+
 }
