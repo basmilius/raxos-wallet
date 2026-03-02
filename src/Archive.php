@@ -6,7 +6,8 @@ namespace Raxos\Wallet;
 use Raxos\Foundation\Error\TemporaryFileFailedException;
 use Raxos\Foundation\Util\FileSystemUtil;
 use Raxos\Http\HttpHeader;
-use Raxos\Router\Response\{BinaryResponse, Response};
+use Raxos\Http\HttpResponse;
+use Raxos\Http\Response\BinaryHttpResponse;
 use ZipArchive;
 use function file_get_contents;
 use function gmdate;
@@ -119,19 +120,19 @@ final readonly class Archive
     /**
      * Respond as a binary response.
      *
-     * @return Response
+     * @return HttpResponse
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function respond(): Response
+    public function respond(): HttpResponse
     {
-        return new BinaryResponse($this->binary())
-            ->withHeader(HttpHeader::CONTENT_TRANSFER_ENCODING, 'binary')
-            ->withHeader(HttpHeader::CONNECTION, 'Keep-Alive')
-            ->withHeader(HttpHeader::EXPIRES, '0')
-            ->withHeader(HttpHeader::CACHE_CONTROL, 'must-revalidate, post-check=0, pre-check=0')
-            ->withHeader(HttpHeader::LAST_MODIFIED, gmdate('D, d M Y H:i:s T'))
-            ->withHeader(HttpHeader::PRAGMA, 'public');
+        return new BinaryHttpResponse($this->binary())
+            ->header(HttpHeader::CONTENT_TRANSFER_ENCODING, 'binary')
+            ->header(HttpHeader::CONNECTION, 'Keep-Alive')
+            ->header(HttpHeader::EXPIRES, '0')
+            ->header(HttpHeader::CACHE_CONTROL, 'must-revalidate, post-check=0, pre-check=0')
+            ->header(HttpHeader::LAST_MODIFIED, gmdate('D, d M Y H:i:s T'))
+            ->header(HttpHeader::PRAGMA, 'public');
     }
 
 }

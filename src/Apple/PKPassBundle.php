@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Raxos\Wallet\Apple;
 
 use Raxos\Http\HttpHeader;
-use Raxos\Router\Response\Response;
+use Raxos\Http\HttpResponse;
 use Raxos\Wallet\Archive;
 use function sprintf;
 
@@ -92,16 +92,16 @@ final readonly class PKPassBundle
     /**
      * Respond as a binary response.
      *
-     * @return Response
+     * @return HttpResponse
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see Archive::respond()
      */
-    public function respond(): Response
+    public function respond(): HttpResponse
     {
         return $this->archive->respond()
-            ->withHeader(HttpHeader::CONTENT_DISPOSITION, sprintf('attachment; filename="%s"', $this->fileName))
-            ->withHeader(HttpHeader::CONTENT_TYPE, 'application/vnd.apple.pkpasses');
+            ->header(HttpHeader::CONTENT_DISPOSITION, sprintf('attachment; filename="%s"', $this->fileName))
+            ->header(HttpHeader::CONTENT_TYPE, 'application/vnd.apple.pkpasses');
     }
 
 }
