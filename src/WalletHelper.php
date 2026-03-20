@@ -50,8 +50,21 @@ final class WalletHelper
         $begin = 'filename="smime.p7s"';
         $end = '------';
 
-        $signature = substr($signature, strpos($signature, $begin) + strlen($begin));
-        $signature = substr($signature, 0, strpos($signature, $end));
+        $beginPos = strpos($signature, $begin);
+
+        if ($beginPos === false) {
+            throw new \RuntimeException('Invalid PEM signature: missing begin marker.');
+        }
+
+        $signature = substr($signature, $beginPos + strlen($begin));
+
+        $endPos = strpos($signature, $end);
+
+        if ($endPos === false) {
+            throw new \RuntimeException('Invalid PEM signature: missing end marker.');
+        }
+
+        $signature = substr($signature, 0, $endPos);
         $signature = trim($signature);
 
         return base64_decode($signature);

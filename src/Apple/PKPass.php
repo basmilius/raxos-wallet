@@ -19,10 +19,6 @@ use function sha1;
 use function sha1_file;
 use function sprintf;
 use function unlink;
-use const JSON_HEX_AMP;
-use const JSON_HEX_APOS;
-use const JSON_HEX_QUOT;
-use const JSON_HEX_TAG;
 use const JSON_THROW_ON_ERROR;
 use const PKCS7_BINARY;
 use const PKCS7_DETACHED;
@@ -41,7 +37,7 @@ final class PKPass
     private array $manifest = [];
 
     public string $fileName {
-        get => "{$this->pass->serialNumber}.pkpass}";
+        get => "{$this->pass->serialNumber}.pkpass";
     }
 
     /**
@@ -172,7 +168,7 @@ final class PKPass
 
         file_put_contents($manifestFile, $manifestJson);
 
-        openssl_pkcs7_sign(
+        $signed = openssl_pkcs7_sign(
             $manifestFile,
             $signatureFile,
             $this->identity->certificate,
@@ -184,6 +180,13 @@ final class PKPass
             PKCS7_BINARY | PKCS7_DETACHED,
             $wwdrFile
         );
+
+        if (!$signed) {
+            @unlink($manifestFile);
+            @unlink($signatureFile);
+
+            throw new \RuntimeException('Failed to sign the PKPass.');
+        }
 
         $signature = file_get_contents($signatureFile);
         $signature = WalletHelper::pemToDER($signature);
@@ -221,7 +224,7 @@ final class PKPass
      */
     private function json(mixed $data): string
     {
-        return json_encode($data, JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_THROW_ON_ERROR);
+        return json_encode($data, JSON_THROW_ON_ERROR);
     }
 
     /**

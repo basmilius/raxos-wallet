@@ -68,7 +68,7 @@ final class Strings implements Stringable
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function escape(string $str): string
+    private function escape(string $str): string
     {
         return strtr($str, self::ESCAPES);
     }
