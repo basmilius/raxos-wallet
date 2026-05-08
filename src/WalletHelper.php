@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Raxos\Wallet;
 
+use RuntimeException;
 use function base64_decode;
 use function is_array;
 use function strlen;
@@ -53,7 +54,7 @@ final class WalletHelper
         $beginPos = strpos($signature, $begin);
 
         if ($beginPos === false) {
-            throw new \RuntimeException('Invalid PEM signature: missing begin marker.');
+            throw new RuntimeException('Invalid PEM signature: missing begin marker.');
         }
 
         $signature = substr($signature, $beginPos + strlen($begin));
@@ -61,7 +62,7 @@ final class WalletHelper
         $endPos = strpos($signature, $end);
 
         if ($endPos === false) {
-            throw new \RuntimeException('Invalid PEM signature: missing end marker.');
+            throw new RuntimeException('Invalid PEM signature: missing end marker.');
         }
 
         $signature = substr($signature, 0, $endPos);

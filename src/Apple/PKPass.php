@@ -10,6 +10,7 @@ use Raxos\Http\HttpHeader;
 use Raxos\Http\HttpResponse;
 use Raxos\Wallet\{Archive, WalletHelper};
 use Raxos\Wallet\Apple\Component\Pass;
+use RuntimeException;
 use function file_get_contents;
 use function file_put_contents;
 use function json_encode;
@@ -185,7 +186,7 @@ final class PKPass
             @unlink($manifestFile);
             @unlink($signatureFile);
 
-            throw new \RuntimeException('Failed to sign the PKPass.');
+            throw new RuntimeException('Failed to sign the PKPass.');
         }
 
         $signature = file_get_contents($signatureFile);
