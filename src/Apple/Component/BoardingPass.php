@@ -20,33 +20,33 @@ final readonly class BoardingPass extends PassFields
      * BoardingPass constructor.
      *
      * @param TransitType $transitType
-     * @param AdditionalInfoField|null $additionalInfoFields
-     * @param AuxiliaryField|null $auxiliaryFields
-     * @param BackField|null $backFields
-     * @param HeaderField|null $headerFields
-     * @param PrimaryField|null $primaryFields
-     * @param SecondaryField|null $secondaryFields
+     * @param AdditionalInfoField|AdditionalInfoField[]|null $additionalInfoFields
+     * @param AuxiliaryField|AuxiliaryField[]|null $auxiliaryFields
+     * @param BackField|BackField[]|null $backFields
+     * @param HeaderField|HeaderField[]|null $headerFields
+     * @param PrimaryField|PrimaryField[]|null $primaryFields
+     * @param SecondaryField|SecondaryField[]|null $secondaryFields
      *
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
     public function __construct(
         public TransitType $transitType,
-        ?AdditionalInfoField $additionalInfoFields = null,
-        ?AuxiliaryField $auxiliaryFields = null,
-        ?BackField $backFields = null,
-        ?HeaderField $headerFields = null,
-        ?PrimaryField $primaryFields = null,
-        ?SecondaryField $secondaryFields = null
+        AdditionalInfoField|array|null $additionalInfoFields = null,
+        AuxiliaryField|array|null $auxiliaryFields = null,
+        BackField|array|null $backFields = null,
+        HeaderField|array|null $headerFields = null,
+        PrimaryField|array|null $primaryFields = null,
+        SecondaryField|array|null $secondaryFields = null
     )
     {
         parent::__construct(
-            primaryFields: $primaryFields,
-            secondaryFields: $secondaryFields,
-            additionalInfoFields: $additionalInfoFields,
-            auxiliaryFields: $auxiliaryFields,
-            backFields: $backFields,
-            headerFields: $headerFields
+            primaryFields: $primaryFields instanceof PrimaryField ? [$primaryFields] : $primaryFields,
+            secondaryFields: $secondaryFields instanceof SecondaryField ? [$secondaryFields] : $secondaryFields,
+            additionalInfoFields: $additionalInfoFields instanceof AdditionalInfoField ? [$additionalInfoFields] : $additionalInfoFields,
+            auxiliaryFields: $auxiliaryFields instanceof AuxiliaryField ? [$auxiliaryFields] : $auxiliaryFields,
+            backFields: $backFields instanceof BackField ? [$backFields] : $backFields,
+            headerFields: $headerFields instanceof HeaderField ? [$headerFields] : $headerFields
         );
     }
 

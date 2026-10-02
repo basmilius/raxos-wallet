@@ -1,7 +1,7 @@
 {
     "name": "raxos/wallet",
     "description": "A PHP library for generating Apple Wallet and Google Wallet passes.",
-    "license": "mit",
+    "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "type": "library",
@@ -19,6 +19,9 @@
     "config": {
         "platform": {
             "php": "8.5"
+        },
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     },
     "repositories": [
@@ -33,8 +36,21 @@
         "ext-openssl": "*",
         "ext-zip": "*",
         "jetbrains/phpstorm-attributes": "^1.2",
+        "php": ">=8.5",
+        "raxos/contract": "*",
         "raxos/foundation": "*",
         "raxos/http": "*",
         "raxos/router": "*"
+    },
+    "require-dev": {
+        "pestphp/pest": "^5.0"
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/Fixtures/"
+        ]
+    },
+    "scripts": {
+        "test": "pest --compact"
     }
 }
