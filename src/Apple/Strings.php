@@ -26,18 +26,30 @@ final class Strings implements Stringable
     ];
 
     /**
+     * @var array<string, string>
+     * @author Bas Milius <bas@mili.us>
+     * @since 3.2.0
+     */
+    private array $strings = [];
+
+    /**
      * Strings constructor.
      *
      * @param string $language
      * @param array<string, string> $strings
      *
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
     public function __construct(
         public readonly string $language,
-        private array $strings = []
-    ) {}
+        array $strings = []
+    )
+    {
+        foreach ($strings as $key => $value) {
+            $this->add($key, $value);
+        }
+    }
 
     /**
      * Adds a string.

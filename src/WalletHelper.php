@@ -44,7 +44,7 @@ final class WalletHelper
      *
      * @return string
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
     public static function pemToDER(string $signature): string
     {
@@ -68,7 +68,12 @@ final class WalletHelper
         $signature = substr($signature, 0, $endPos);
         $signature = trim($signature);
 
-        return base64_decode($signature);
+        $decoded = base64_decode($signature, true);
+        if ($decoded === false) {
+            throw new RuntimeException('Invalid PEM signature: malformed base64.');
+        }
+
+        return $decoded;
     }
 
 }
