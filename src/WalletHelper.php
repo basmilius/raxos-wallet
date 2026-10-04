@@ -22,7 +22,6 @@ use function trim;
  */
 final class WalletHelper
 {
-
     /**
      * Checks if the given value is not considered empty.
      *
@@ -44,7 +43,7 @@ final class WalletHelper
      *
      * @return string
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public static function pemToDER(string $signature): string
     {
@@ -69,11 +68,11 @@ final class WalletHelper
         $signature = trim($signature);
 
         $decoded = base64_decode($signature, true);
+
         if ($decoded === false) {
             throw new RuntimeException('Invalid PEM signature: malformed base64.');
         }
 
         return $decoded;
     }
-
 }

@@ -26,6 +26,8 @@ final class Strings implements Stringable
     ];
 
     /**
+     * Retains localized entries in deterministic output order.
+     *
      * @var array<string, string>
      * @author Bas Milius <bas@mili.us>
      * @since 3.2.0
@@ -39,7 +41,7 @@ final class Strings implements Stringable
      * @param array<string, string> $strings
      *
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function __construct(
         public readonly string $language,
@@ -61,7 +63,10 @@ final class Strings implements Stringable
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function add(string $key, string $value): self
+    public function add(
+        string $key,
+        string $value
+    ): self
     {
         $key = $this->escape($key);
         $value = $this->escape($value);
@@ -100,5 +105,4 @@ final class Strings implements Stringable
 
         return implode(PHP_EOL, $lines);
     }
-
 }

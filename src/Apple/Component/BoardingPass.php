@@ -15,7 +15,6 @@ use Raxos\Wallet\WalletHelper;
  */
 final readonly class BoardingPass extends PassFields
 {
-
     /**
      * BoardingPass constructor.
      *
@@ -28,7 +27,7 @@ final readonly class BoardingPass extends PassFields
      * @param SecondaryField|SecondaryField[]|null $secondaryFields
      *
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function __construct(
         public TransitType $transitType,
@@ -62,5 +61,4 @@ final readonly class BoardingPass extends PassFields
             ...parent::jsonSerialize()
         ], WalletHelper::isNotEmpty(...));
     }
-
 }

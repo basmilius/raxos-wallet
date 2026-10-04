@@ -19,7 +19,7 @@ Build, sign and package Apple Wallet passes and pass bundles.
 Requires PHP 8.5 or later. Enable the `json`, `openssl`, `zip` PHP extensions. Composer checks the remaining package and extension dependencies declared in [composer.json](composer.json).
 
 ```sh
-composer require "raxos/wallet:^3.2"
+composer require "raxos/wallet:^3.3"
 ```
 
 ## Usage
