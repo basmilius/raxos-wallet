@@ -13,9 +13,7 @@ it('serializes each field group using its exact external key', function (): void
         [new AuxiliaryField('auxiliary', 3)],
         [new BackField('back', 4)],
         [new HeaderField('header', 5)],
-    ) extends PassFields
-    {
-    };
+    ) extends PassFields {};
     $data = json_decode(json_encode($fields, JSON_THROW_ON_ERROR), true);
     expect(array_keys($data))->toBe(['additionalInfoFields', 'auxiliaryFields', 'backFields', 'headerFields', 'primaryFields', 'secondaryFields'])
         ->and($data['primaryFields'])->toBe([['key' => 'primary', 'value' => 0]])->and($data['backFields'])->toBe([['key' => 'back', 'value' => 4]]);

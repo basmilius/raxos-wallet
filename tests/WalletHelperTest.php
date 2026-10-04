@@ -16,5 +16,5 @@ it('extracts exact binary bytes from the signature MIME part', function (): void
 });
 
 it('rejects missing markers and malformed base64 signatures', function (string $signature): void {
-    expect(fn () => WalletHelper::pemToDER($signature))->toThrow(RuntimeException::class);
+    expect(fn() => WalletHelper::pemToDER($signature))->toThrow(RuntimeException::class);
 })->with(['missing markers', 'filename="smime.p7s" without end', 'filename="smime.p7s" !!!! ------boundary']);

@@ -17,6 +17,7 @@ function unitIdentity(): Identity
     $certificate = openssl_csr_sign($csr, null, $key, 1, ['digest_alg' => 'sha256']);
     openssl_x509_export($certificate, $certificatePem);
     openssl_pkey_export($key, $privateKeyPem, 'unit-password');
+
     return $identity = new Identity($certificatePem, $privateKeyPem, 'unit-password', 'pass.unit', 'team.unit');
 }
 
@@ -35,6 +36,7 @@ function walletZipContents(string $binary): array
             $contents[$name] = $zip->getFromIndex($i);
         }
         $zip->close();
+
         return $contents;
     } finally {
         unlink($file);
