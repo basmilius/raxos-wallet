@@ -12,8 +12,10 @@ namespace Raxos\Wallet\Apple\Enum;
  */
 enum TextAlignment: string
 {
+
     case CENTER = 'PKTextAlignmentCenter';
     case LEFT = 'PKTextAlignmentLeft';
     case NATURAL = 'PKTextAlignmentNatural';
     case RIGHT = 'PKTextAlignmentRight';
+
 }

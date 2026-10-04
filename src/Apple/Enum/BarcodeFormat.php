@@ -12,8 +12,10 @@ namespace Raxos\Wallet\Apple\Enum;
  */
 enum BarcodeFormat: string
 {
+
     case AZTEC = 'PKBarcodeFormatAztec';
     case CODE128 = 'PKBarcodeFormatCode128';
     case PDF417 = 'PKBarcodeFormatPDF417';
     case QR = 'PKBarcodeFormatQR';
+
 }

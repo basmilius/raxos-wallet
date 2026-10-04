@@ -22,6 +22,7 @@ use function trim;
  */
 final class WalletHelper
 {
+
     /**
      * Checks if the given value is not considered empty.
      *
@@ -75,4 +76,5 @@ final class WalletHelper
 
         return $decoded;
     }
+
 }

@@ -92,6 +92,7 @@ final class Strings implements Stringable
 
     /**
      * {@inheritdoc}
+     *
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -105,4 +106,5 @@ final class Strings implements Stringable
 
         return implode(PHP_EOL, $lines);
     }
+
 }

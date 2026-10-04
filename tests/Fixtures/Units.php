@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace RaxosTests\Wallet;
 
 use Raxos\Wallet\Apple\Identity;
+use RuntimeException;
 use ZipArchive;
 
 function unitIdentity(): Identity
@@ -28,7 +29,7 @@ function walletZipContents(string $binary): array
     $zip = new ZipArchive();
     try {
         if ($zip->open($file) !== true) {
-            throw new \RuntimeException('Invalid wallet ZIP.');
+            throw new RuntimeException('Invalid wallet ZIP.');
         }
         $contents = [];
         for ($i = 0; $i < $zip->numFiles; $i++) {

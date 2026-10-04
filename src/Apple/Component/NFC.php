@@ -35,6 +35,7 @@ final readonly class NFC implements ComponentInterface
 
     /**
      * {@inheritdoc}
+     *
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

@@ -12,9 +12,11 @@ namespace Raxos\Wallet\Apple\Enum;
  */
 enum TransitType: string
 {
+
     case AIR = 'PKTransitTypeAir';
     case BOAT = 'PKTransitTypeBoat';
     case BUS = 'PKTransitTypeBus';
     case GENERIC = 'PKTransitTypeGeneric';
     case TRAIN = 'PKTransitTypeTrain';
+
 }

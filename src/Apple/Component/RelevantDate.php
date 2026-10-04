@@ -35,6 +35,7 @@ final readonly class RelevantDate implements ComponentInterface
 
     /**
      * {@inheritdoc}
+     *
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

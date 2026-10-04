@@ -12,8 +12,10 @@ namespace Raxos\Wallet\Apple\Enum;
  */
 enum NumberStyle: string
 {
+
     case DECIMAL = 'PKNumberStyleDecimal';
     case PERCENT = 'PKNumberStylePercent';
     case SCIENTIFIC = 'PKNumberStyleScientific';
     case SPELL_OUT = 'PKNumberStyleSpellOut';
+
 }

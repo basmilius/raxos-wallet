@@ -132,6 +132,7 @@ final readonly class Pass implements ComponentInterface
 
     /**
      * {@inheritdoc}
+     *
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-use Raxos\Wallet\Apple\Component\Pass;
 use Raxos\Wallet\Apple\{PKPass, Strings};
+use Raxos\Wallet\Apple\Component\Pass;
 use Symfony\Component\Process\Process;
 use function RaxosTests\Wallet\{unitIdentity, walletZipContents};
 

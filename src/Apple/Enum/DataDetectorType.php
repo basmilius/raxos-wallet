@@ -12,8 +12,10 @@ namespace Raxos\Wallet\Apple\Enum;
  */
 enum DataDetectorType: string
 {
+
     case ADDRESS = 'PKDataDetectorTypeAddress';
     case CALENDAR_EVENT = 'PKDataDetectorTypeCalendarEvent';
     case LINK = 'PKDataDetectorTypeLink';
     case PHONE_NUMBER = 'PKDataDetectorTypePhoneNumber';
+
 }

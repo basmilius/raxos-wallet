@@ -12,9 +12,11 @@ namespace Raxos\Wallet\Apple\Enum;
  */
 enum DateStyle: string
 {
+
     case FULL = 'PKDateStyleFull';
     case LONG = 'PKDateStyleLong';
     case MEDIUM = 'PKDateStyleMedium';
     case NONE = 'PKDateStyleNone';
     case SHORT = 'PKDateStyleShort';
+
 }
